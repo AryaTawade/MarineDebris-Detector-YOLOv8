@@ -1,0 +1,27 @@
+names:
+- Mask
+- can
+- cellphone
+- electronics
+- gbottle
+- glove
+- metal
+- misc
+- net
+- pbag
+- pbottle
+- plastic
+- rod
+- sunglasses
+- tire
+nc: 15
+path: /root/.cache/kagglehub/datasets/arnavs19/underwater-plastic-pollution-detection/versions/1/underwater_plastics
+roboflow:
+  license: CC BY 4.0
+  project: ocean_waste
+  url: https://universe.roboflow.com/object-detect-dmjpt/ocean_waste/dataset/1
+  version: 1
+  workspace: object-detect-dmjpt
+test: test/images
+train: train/images
+val: valid/images
