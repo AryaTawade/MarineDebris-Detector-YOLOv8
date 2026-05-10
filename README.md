@@ -7,17 +7,18 @@ An end-to-end Computer Vision pipeline to detect and localize 15 categories of m
 
 ## Performance Summary
 * **Inference Speed:** 2.3ms (~434 FPS) on NVIDIA Tesla T4 GPU.
+* **Total Latency:** 4.9ms per image (including pre/post-processing).
 * **Global mAP@50:** 0.60 (60%).
-* **Best Performing Classes:** Cellphones (99%), Plastic Bags (95%), Fishing Nets (86%).
+* **Top Classes:** Cellphones (98.9%), Plastic Bags (95.4%), Fishing Nets (86.1%).
 
 ## Tech Stack
 - **Framework:** Ultralytics YOLOv8
 - **Language:** Python 3.12
+- **Hardware:** NVIDIA Tesla T4 (Google Colab)
 - **Libraries:** PyTorch, OpenCV, Matplotlib, YAML
-- **Platform:** Google Colab (GPU Accelerated)
 
 ## Results
-Training was conducted over 20 epochs using transfer learning from COCO-pretrained weights.
+Training was conducted over **20 epochs** with a **batch size of 16**, leveraging transfer learning from COCO-pretrained weights.
 
 | Metric | Value |
 | :--- | :--- |
@@ -26,16 +27,20 @@ Training was conducted over 20 epochs using transfer learning from COCO-pretrain
 | **mAP50** | 0.600 |
 | **Inference Latency** | 2.3ms |
 
-### Key Insights
-- **Class Imbalance:** The model excels at identifying bulky items (Tires, Bags) but requires more data for smaller categories like 'metal' and 'sunglasses'.
-- **Real-Time Readiness:** The ultra-low latency allows for temporal consistency across video frames, enabling tracking in live streams.
-
-## Repository Structure
-- `Real_Time_Marine_Debris_Detection_and_Localization_using_YOLOv8.ipynb`: The complete training & inference pipeline.
-- `marine_pollution.yaml`: Dataset configuration file.
-
 ### Performance Analysis
 ![Training Results](results.png)
 ![Confusion Matrix](confusion_matrix.png)
 
+## Key Insights
+- **Class Imbalance:** The model excels at identifying bulky items (Tires, Bags) but requires more data for smaller categories like 'metal' and 'sunglasses'.
+- **Real-Time Readiness:** With a throughput of **204 FPS** (total pipeline), the system is optimized for high-speed temporal tracking in live video streams.
 
+## Repository Structure
+- `Real_Time_Marine_Debris_Detection_and_Localization_using_YOLOv8.ipynb`: Full source code and training pipeline.
+- `best.pt`: Trained model weights (15-class detection).
+- `marine_pollution.yaml`: Dataset configuration and class mapping.
+- `results.png` & `confusion_matrix.png`: Statistical proof of model performance.
+
+## 🏗️ Future Scope
+- Integrating **Temporal Smoothing** to reduce false positives in murky water.
+- Exporting the model to **TensorRT** for faster edge-device deployment.
