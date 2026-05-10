@@ -31,7 +31,11 @@ Training was conducted over 20 epochs using transfer learning from COCO-pretrain
 - **Real-Time Readiness:** The ultra-low latency allows for temporal consistency across video frames, enabling tracking in live streams.
 
 ## Repository Structure
-- `Marine_Pollution_YOLOv8.ipynb`: The complete training & inference pipeline.
+- `Real_Time_Marine_Debris_Detection_and_Localization_using_YOLOv8.ipynb`: The complete training & inference pipeline.
 - `marine_pollution.yaml`: Dataset configuration file.
+
+### Performance Analysis
+![Training Results](results.png)
+![Confusion Matrix](confusion_matrix.png)
 
 
